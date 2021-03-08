@@ -1,0 +1,14 @@
+<launch>
+  <arg name="rate" default="30"/>
+  <arg name="vel" default="0.0"/>
+  <arg name="omega" default="0.0"/>
+  <arg name="output" default="/vehicle/status/twist"/>
+
+  <node pkg="twist_publisher" exec="twist_publisher_node" name="twist_publisher" output="screen">
+    <param name="rate" value="$(var rate)"/>
+    <param name="vel" value="$(var vel)"/>
+    <param name="omega" value="$(var omega)"/>
+    <remap from="out/twist" to="$(var output)"/>
+  </node>
+
+</launch>
